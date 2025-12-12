@@ -1,6 +1,6 @@
 import React from "react";
 import { useContent } from "../ContentContext";
-import logoImg from "../assets/logo.png";
+import logoImg from "../public/logo.png";
 
 export default function Footer({ onLogoClick }) {
   const { content } = useContent();
