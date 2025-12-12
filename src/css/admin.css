@@ -1,0 +1,1306 @@
+/* =====================================================
+   ADMIN.CSS - Panel de Administración Mejorado
+   Con menú desplegable hacia abajo en móvil
+===================================================== */
+
+/* Fuente Inter para mejor tipografía */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.admin {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: #09090b;
+  color: #fafafa;
+  z-index: 9000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.admin__sidebar {
+  width: 280px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-sizing: border-box;
+}
+
+.admin__logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.admin__logo-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.admin__logo-icon svg {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.admin__logo > div:not(.admin__logo-icon):not(.admin__sidebar-close) {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin__logo h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin__subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #71717a;
+  white-space: nowrap;
+}
+
+.admin__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.admin__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s ease;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin__nav-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.admin__nav-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.admin__nav-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.admin__nav-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.admin__sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ===== CONTENT ===== */
+.admin__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.admin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: rgba(24, 24, 27, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.admin__header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.admin__header-sub {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #71717a;
+}
+
+.admin__header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.admin__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+/* ===== SECTIONS & CARDS ===== */
+.admin__section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+}
+
+.admin__card {
+  background: linear-gradient(180deg, #18181b, #121214);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.admin__card--project {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin__card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ===== GRID ===== */
+.admin__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.admin__grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.admin__project-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+}
+
+/* ===== FIELDS ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #a1a1aa;
+  margin-top: 10px;
+}
+
+.field input,
+.field textarea {
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #fafafa;
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: all .2s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #52525b;
+  font-weight: 400;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+/* ===== SKILLS ===== */
+.admin__skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin__skill-item {
+  display: flex;
+  gap: 10px;
+}
+
+.admin__skill-item input {
+  flex: 1;
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #fafafa;
+  font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ===== IMAGE UPLOAD ===== */
+.admin__project-image-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin__image-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #a1a1aa;
+}
+
+.admin__image-upload {
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.admin__image-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin__image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin__image-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background .2s ease;
+}
+
+.admin__image-remove:hover {
+  background: #ef4444;
+}
+
+.admin__image-dropzone {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all .2s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin__image-dropzone:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin__image-dropzone-icon {
+  width: 40px;
+  height: 40px;
+  opacity: 0.4;
+}
+
+.admin__image-dropzone-icon svg {
+  width: 100%;
+  height: 100%;
+  color: #71717a;
+}
+
+.admin__image-dropzone span {
+  font-size: 13px;
+  color: #71717a;
+}
+
+/* ===== GALLERY ===== */
+.admin__gallery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin__gallery {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin__gallery-item {
+  position: relative;
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin__gallery-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0;
+  transition: all .2s ease;
+}
+
+.admin__gallery-item:hover .admin__gallery-remove {
+  opacity: 1;
+}
+
+.admin__gallery-remove:hover {
+  background: #ef4444;
+}
+
+.admin__gallery-add {
+  width: 100px;
+  height: 70px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.admin__gallery-add:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin__gallery-add span {
+  font-size: 24px;
+  color: #52525b;
+}
+
+.admin__gallery-add-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.admin__gallery-add-icon svg {
+  width: 100%;
+  height: 100%;
+  color: #52525b;
+}
+
+/* ===== BUTTON ICONS ===== */
+.btn__icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn--icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.btn--icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===== BUTTONS ===== */
+.btn--primary {
+  background: #fff;
+  color: #09090b;
+}
+
+.btn--primary:hover {
+  background: #e4e4e7;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn--danger {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.btn--danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.btn--sm {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== ICON SELECTOR ===== */
+.admin__icon-selector {
+  margin-bottom: 20px;
+}
+
+.admin__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #a1a1aa;
+  margin-bottom: 10px;
+}
+
+.admin__icon-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+
+.admin__icon-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.admin__icon-btn svg {
+  width: 22px;
+  height: 22px;
+  color: #a1a1aa;
+}
+
+.admin__icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.admin__icon-btn:hover svg {
+  color: #fff;
+}
+
+.admin__icon-btn.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+}
+
+.admin__icon-btn.active svg {
+  color: #fff;
+}
+
+/* ===== SKILLS CON CERTIFICADOS ===== */
+.admin__skill-item--with-cert {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.admin__skill-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin__skill-main input {
+  flex: 1;
+}
+
+.admin__skill-certificate {
+  display: flex;
+  align-items: center;
+}
+
+.admin__cert-upload {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #71717a;
+  font-size: 0.85rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.admin__cert-upload:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.admin__cert-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__cert-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.admin__cert-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.admin__cert-preview img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.admin__cert-label {
+  color: #22c55e;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.admin__cert-remove {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.admin__cert-remove:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ===== RESPONSIVE - ELEMENTOS MÓVIL ===== */
+
+/* Overlay móvil */
+.admin__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+}
+
+/* Botón menú hamburguesa */
+.admin__menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.admin__menu-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.admin__menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botón cerrar sidebar */
+.admin__sidebar-close {
+  display: none;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #71717a;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: auto;
+}
+
+.admin__sidebar-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.admin__sidebar-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Header left con menú */
+.admin__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Texto del botón guardar */
+.admin__btn-text {
+  display: inline;
+}
+
+/* ===== RESPONSIVE 1024px ===== */
+@media (max-width: 1024px) {
+  .admin__sidebar {
+    width: 240px;
+  }
+
+  .admin__project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin__image-upload {
+    max-width: 300px;
+  }
+}
+
+/* ===== RESPONSIVE 768px - MENÚ DESPLEGABLE HACIA ABAJO ===== */
+@media (max-width: 768px) {
+  /* Layout principal en columna */
+  .admin {
+    flex-direction: column;
+  }
+
+  /* Overlay visible cuando menú abierto */
+  .admin__overlay {
+    display: block;
+  }
+
+  /* Botón hamburguesa visible */
+  .admin__menu-btn {
+    display: flex;
+  }
+
+  /* Botón cerrar visible */
+  .admin__sidebar-close {
+    display: flex;
+  }
+
+  /* ===== SIDEBAR COMO DROPDOWN DESDE ARRIBA ===== */
+  .admin__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    padding: 0 16px;
+    overflow: hidden;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: linear-gradient(180deg, #18181b 0%, #0d0d0f 100%);
+  }
+
+  .admin__sidebar--open {
+    max-height: 90vh;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  /* Logo en móvil */
+  .admin__logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .admin__logo-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 6px;
+  }
+
+  .admin__logo h2 {
+    font-size: 16px;
+  }
+
+  .admin__subtitle {
+    font-size: 11px;
+  }
+
+  /* Nav como lista vertical */
+  .admin__nav {
+    flex-direction: column;
+    gap: 4px;
+    flex: none;
+  }
+
+  .admin__nav-btn {
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 12px;
+    justify-content: flex-start;
+  }
+
+  /* Mostrar texto de los botones de nav */
+  .admin__nav-btn span:last-child {
+    display: inline;
+  }
+
+  .admin__nav-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+  }
+
+  /* Footer del sidebar */
+  .admin__sidebar-footer {
+    display: block;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .admin__sidebar-footer .btn {
+    padding: 14px 16px;
+    font-size: 15px;
+    justify-content: flex-start;
+  }
+
+  /* ===== CONTENIDO PRINCIPAL ===== */
+  .admin__content {
+    margin-top: 0;
+  }
+
+  /* Header */
+  .admin__header {
+    padding: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .admin__header h1 {
+    font-size: 1.25rem;
+  }
+
+  .admin__header-sub {
+    font-size: 0.8rem;
+  }
+
+  .admin__header-actions {
+    gap: 8px;
+  }
+
+  .admin__header-actions .btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* Ocultar texto del botón guardar */
+  .admin__btn-text {
+    display: none;
+  }
+
+  /* Body */
+  .admin__body {
+    padding: 16px;
+  }
+
+  /* Cards */
+  .admin__card {
+    padding: 16px;
+  }
+
+  .admin__card-title {
+    font-size: 0.95rem;
+  }
+
+  /* Grid a columna */
+  .admin__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field--full {
+    grid-column: 1;
+  }
+
+  /* Icon grid */
+  .admin__icon-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  /* Skills */
+  .admin__skill-item--with-cert {
+    padding: 12px;
+  }
+
+  .admin__skill-main {
+    flex-wrap: wrap;
+  }
+
+  .admin__skill-main input {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* =====================================================
+   ADMIN-EXTRAS.CSS - Estilos adicionales
+   Agregar al final de admin.css
+===================================================== */
+
+/* ===== CV UPLOAD SECTION ===== */
+.admin__cv-section {
+  margin-top: 8px;
+}
+
+.admin__cv-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.admin__cv-upload:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.admin__cv-upload-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.admin__cv-upload-icon svg {
+  width: 100%;
+  height: 100%;
+  color: #71717a;
+}
+
+.admin__cv-upload:hover .admin__cv-upload-icon {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.admin__cv-upload:hover .admin__cv-upload-icon svg {
+  color: #fff;
+}
+
+.admin__cv-upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin__cv-upload-text strong {
+  color: #fff;
+  font-size: 15px;
+}
+
+.admin__cv-upload-text small {
+  color: #71717a;
+  font-size: 13px;
+}
+
+/* CV Preview */
+.admin__cv-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 12px;
+  gap: 16px;
+}
+
+.admin__cv-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.admin__cv-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 197, 94, 0.2);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.admin__cv-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+}
+
+.admin__cv-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin__cv-status {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #22c55e;
+}
+
+.admin__cv-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ===== EDUCACIÓN MÚLTIPLE ===== */
+.admin__education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin__education-item {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.admin__education-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin__education-number {
+  font-size: 13px;
+  font-weight: 600;
+  color: #71717a;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.about__education-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+
+
+.about__education-item {
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.about__education-item:not(:last-child) {
+  padding-bottom: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .admin__cv-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .admin__cv-actions {
+    width: 100%;
+  }
+
+  .admin__cv-actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .admin__education-item {
+    padding: 12px;
+  }
+
+  .admin__education-header {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin__cv-upload {
+    padding: 24px 16px;
+  }
+
+  .admin__cv-upload-icon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .admin__cv-upload-text strong {
+    font-size: 14px;
+  }
+
+  .admin__cv-upload-text small {
+    font-size: 12px;
+  }
+}
+
+/* ===== RESPONSIVE 480px ===== */
+@media (max-width: 480px) {
+  .admin__header {
+    padding: 12px;
+  }
+
+  .admin__header h1 {
+    font-size: 1.1rem;
+  }
+
+  .admin__header-left {
+    gap: 12px;
+  }
+
+  .admin__menu-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .admin__header-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .admin__header-actions .btn--ghost {
+    display: none;
+  }
+
+  .admin__body {
+    padding: 12px;
+  }
+
+  .admin__card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* Project grid */
+  .admin__project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin__project-image-section {
+    order: -1;
+  }
+
+  /* Icon grid más pequeño */
+  .admin__icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .admin__icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Cert preview */
+  .admin__cert-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .admin__cert-preview img {
+    width: 100%;
+    height: 60px;
+  }
+}
+
+/* ===== RESPONSIVE 360px ===== */
+@media (max-width: 360px) {
+  .admin__header h1 {
+    font-size: 1rem;
+  }
+
+  .admin__body {
+    padding: 10px;
+  }
+
+  .admin__card {
+    padding: 12px;
+  }
+
+  .admin__icon-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

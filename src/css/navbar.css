@@ -1,0 +1,96 @@
+/* =====================================================
+   NAVBAR.CSS - Navbar transparente flotante estilo glass
+===================================================== */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__link {
+  padding: 12px 24px;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  color: #fff;
+}
+
+.navbar__link.active {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: calc(100% - 32px);
+  }
+  
+  .navbar__container {
+    padding: 6px 10px;
+    justify-content: center;
+  }
+  
+  .navbar__link {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    top: 12px;
+    max-width: calc(100% - 24px);
+  }
+  
+  .navbar__container {
+    padding: 5px 6px;
+  }
+  
+  .navbar__link {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+    top: 10px;
+    max-width: calc(100% - 16px);
+  }
+  
+  .navbar__container {
+    padding: 4px 5px;
+  }
+  
+  .navbar__link {
+    padding: 7px 10px;
+    font-size: 0.7rem;
+  }
+}

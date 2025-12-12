@@ -1,0 +1,33 @@
+/* =====================================================
+   MEMOJI.CSS - Canvas 3D Avatar
+===================================================== */
+
+.memoji3d {
+  width: 100%;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.memoji3d:active {
+  cursor: grabbing;
+}
+
+.memoji3d canvas {
+  width: 100%;
+  height: 500px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .memoji3d {
+    height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .memoji3d {
+    height: 240px;
+  }
+}

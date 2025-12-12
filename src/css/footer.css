@@ -1,0 +1,498 @@
+/* =====================================================
+   FOOTER.CSS - Footer con hover igual a Hero
+===================================================== */
+
+/* ===== MODAL DE CONTRASEÑA ===== */
+.password-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.password-modal {
+  background: #1a1a1d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.password-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-modal__close:hover {
+  color: #fff;
+}
+
+.password-modal__close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.password-modal__icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #fff;
+}
+
+.password-modal__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.password-modal__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.password-modal__subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.password-modal__input-wrapper {
+  margin-bottom: 16px;
+}
+
+.password-modal__input-wrapper input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.password-modal__input-wrapper input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.password-modal__input-wrapper input::placeholder {
+  color: #666;
+}
+
+.password-modal__input-wrapper.error input {
+  border-color: #ff4444;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.password-modal__error {
+  color: #ff4444;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: -8px 0 16px;
+}
+
+.password-modal__submit {
+  width: 100%;
+  padding: 14px;
+  background: #fff;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.password-modal__submit:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.password-modal__submit:active {
+  transform: translateY(0);
+}
+
+.footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px 0 20px;
+  margin-top: 0;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo PNG */
+.footer__logo {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__logo:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.footer__tagline {
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+/* ===== ICONOS SOCIALES - MISMO ESTILO QUE HERO ===== */
+.footer__social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Contenedor para cada icono */
+.footer__social .icon-content {
+  position: relative;
+}
+
+.footer__social a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer__social a:hover {
+  transform: translateY(-2px);
+  border-color: transparent;
+  color: #fff;
+}
+
+.footer__social svg {
+  position: relative;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Filled background que escala en hover */
+.footer__social a .filled {
+  position: absolute;
+  inset: 0;
+  transform: scale(0);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.footer__social a:hover .filled {
+  transform: scale(1);
+}
+
+/* Tooltip arriba - fuera del <a> */
+.footer__social .icon-content .tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s ease;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.footer__social .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -46px;
+}
+
+/* Colores por red social */
+/* LinkedIn */
+.footer__social a[data-social="linkedin"] .filled {
+  background: #0077b5;
+}
+.footer__social .icon-content:has(a[data-social="linkedin"]) .tooltip {
+  background: #0077b5;
+}
+
+/* GitHub */
+.footer__social a[data-social="github"] .filled {
+  background: #333;
+}
+.footer__social .icon-content:has(a[data-social="github"]) .tooltip {
+  background: #333;
+}
+
+/* Instagram */
+.footer__social a[data-social="instagram"] .filled {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.footer__social .icon-content:has(a[data-social="instagram"]) .tooltip {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Email */
+.footer__social a[data-social="email"] .filled {
+  background: #ea4335;
+}
+.footer__social .icon-content:has(a[data-social="email"]) .tooltip {
+  background: #ea4335;
+}
+
+/* ===== BOTTOM ===== */
+.footer__bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footer__bottom p {
+  font-size: 0.85rem;
+  color: #52525b;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .footer__container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 0 16px;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* Logo y texto en fila horizontal */
+  .footer__brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .footer__logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .footer__info {
+    text-align: left;
+  }
+  
+  .footer__social {
+    gap: 16px;
+  }
+  
+  .footer__social a {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .footer__social svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .footer__bottom {
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 0 12px;
+  }
+  
+  .footer__container {
+    padding: 0 16px;
+    gap: 20px;
+  }
+  
+  /* Mantener logo y texto en fila */
+  .footer__brand {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .footer__logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .footer__info {
+    text-align: left;
+  }
+  
+  .footer__name {
+    font-size: 0.9rem;
+  }
+  
+  .footer__tagline {
+    font-size: 0.75rem;
+  }
+  
+  .footer__social {
+    gap: 10px;
+  }
+  
+  .footer__social a {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .footer__social svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Ocultar tooltips en móvil */
+  .footer__social a::before,
+  .footer__social a::after {
+    display: none;
+  }
+  
+  .footer__bottom p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer__brand {
+    gap: 8px;
+  }
+  
+  .footer__logo {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .footer__name {
+    font-size: 0.85rem;
+  }
+  
+  .footer__tagline {
+    font-size: 0.7rem;
+  }
+  
+  .footer__social {
+    gap: 8px;
+  }
+  
+  .footer__social a {
+    width: 38px;
+    height: 38px;
+  }
+}

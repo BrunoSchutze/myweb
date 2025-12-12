@@ -1,0 +1,617 @@
+/* =====================================================
+   ABOUT.CSS - Sección Acerca de Mí - Estilo CV
+===================================================== */
+
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0 150px 0;  /* Cambiado: más padding abajo */
+  box-sizing: border-box;
+}
+
+/* Subrayado decorativo en título Acerca de Mí */
+.about__title {
+  position: relative;
+  display: inline-block;
+}
+
+.about__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.3) 100%);
+  border-radius: 2px;
+}
+/* ===== LAYOUT ===== */
+.about__layout {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* ===== MEMOJI 3D - MÁS GRANDE ===== */
+.about__avatar {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-50px) scale(0.8);
+}
+
+.about__avatar.animate-in {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.about__memoji-wrapper {
+  width: 580px;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Animación cuando el memoji es visible */
+.about__memoji-wrapper.memoji-animate {
+  animation: memojiFloat 4s ease-in-out infinite;
+}
+
+@keyframes memojiFloat {
+  0%, 100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateY(-5deg);
+  }
+}
+
+/* Efecto de brillo pulsante detrás del memoji */
+.about__memoji-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.about__memoji-wrapper.memoji-animate::before {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Hacer el canvas del memoji más grande */
+.about__memoji-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ===== CONTENIDO ===== */
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ===== TÍTULO ACERCA DE MÍ ===== */
+.about__header {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about__header.animate-in {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+/* Intro */
+.about__intro {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about__intro.animate-in {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.about__bio {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #a1a1aa;
+  max-width: 600px;
+}
+
+/* Bloques (Educación, Experiencia, Skills) */
+.about__block {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about__block.animate-in {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about__block-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.about__block-indicator {
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(180deg, #fff 0%, #666 100%);
+  border-radius: 2px;
+}
+
+.about__block-content {
+  padding-left: 16px;
+}
+
+.about__block-main {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.about__block-sub {
+  font-size: 0.9rem;
+  color: #a1a1aa;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+.about__block-meta {
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+/* Skills */
+.about__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.about__skill {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: #e4e4e7;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  cursor: default;
+}
+
+.about__skill.skill-animate {
+  animation: skillPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes skillPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.about__skill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .about__layout {
+    grid-template-columns: 500px 1fr;
+    gap: 40px;
+  }
+  
+  .about__memoji-wrapper {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about__layout {
+    grid-template-columns: 420px 1fr;
+    gap: 30px;
+  }
+  
+  .about__memoji-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .about__title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about__avatar {
+    display: flex;
+    justify-content: center;
+    order: 2;
+  }
+  
+  .about__content {
+    order: 1;
+  }
+  
+  .about__memoji-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .about__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about__name {
+    font-size: 1.3rem;
+  }
+  
+  .about__block-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 60px 0;
+  }
+  
+  .about__memoji-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .about__skills {
+    padding-left: 0;
+  }
+  
+  .about__skill {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== SKILL CON CERTIFICADO ===== */
+.about__skill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.about__skill-name {
+  display: inline;
+}
+
+.about__skill--has-cert {
+  padding-right: 4px;
+}
+
+.about__skill-cert-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #22c55e;
+  padding: 0;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.about__skill-cert-btn:hover {
+  color: #4ade80;
+  transform: scale(1.2);
+}
+
+.about__skill-cert-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== HINT DE CERTIFICADOS ===== */
+.about__cert-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 12px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #52525b;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.about__cert-hint svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .about__cert-hint {
+    font-size: 0.75rem;
+    margin: 4px 0 10px 0;
+  }
+  
+  .about__cert-hint svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ===== MODAL DE CERTIFICADO ===== */
+.cert-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cert-modal {
+  background: linear-gradient(180deg, #1a1a1d 0%, #131315 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cert-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #71717a;
+  transition: all 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.cert-modal__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.cert-modal__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cert-modal__header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cert-modal__icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: #22c55e;
+}
+
+.cert-modal__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.cert-modal__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.cert-modal__skill {
+  font-size: 0.95rem;
+  color: #22c55e;
+  margin: 0;
+}
+
+.cert-modal__image {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cert-modal__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .cert-modal {
+    padding: 20px;
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 16px;
+  }
+
+  .cert-modal__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .cert-modal__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cert-modal__title {
+    font-size: 1.1rem;
+  }
+
+  .cert-modal__skill {
+    font-size: 0.9rem;
+  }
+
+  .cert-modal__close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-modal {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .cert-modal__header {
+    margin-bottom: 16px;
+  }
+
+  .cert-modal__icon {
+    width: 44px;
+    height: 44px;
+  }
+}

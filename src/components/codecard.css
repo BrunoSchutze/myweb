@@ -1,0 +1,31 @@
+.code-card{
+  width: 560px; max-width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(180deg,#151517,#121214);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+.code-card__header{
+  height: 38px; display:flex; align-items:center; gap:8px; padding:0 12px;
+  background: linear-gradient(180deg,#1b1b1e,#17171a);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.code-card__header .led{ width:10px; height:10px; border-radius:50%; display:inline-block;}
+.code-card__header .red{background:#ff5f57;} .yellow{background:#ffbd2e;} .green{background:#28c840;}
+.filename{ margin-left:6px; color:#c9cad8; font-size:13px; font-weight:600; }
+
+.code-card__body{
+  padding:16px 18px 18px; font: 13.5px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color:#e6e7ef; min-height: 260px;
+  white-space: pre-wrap;
+}
+
+/* colores mínimos */
+.t-comm{ color:#8e94a7; }
+.t-kw{ color:#c792ea; }
+.t-kw2{ color:#82aaff; }
+.t-str{ color:#ecc48d; }
+.t-type{ color:#7fdbca; }
+.t-prop{ color:#f78c6c; }
+.t-fn{ color:#89ddff; }

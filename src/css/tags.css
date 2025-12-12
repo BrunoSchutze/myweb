@@ -1,0 +1,121 @@
+/* =====================================================
+   TAGS.CSS - Tags y Habilidades con Hover
+===================================================== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 10px 0;
+  list-style: none;
+}
+
+.tags li {
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 12px;
+  transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+/* Borde degradado (visible en hover) */
+.tags li::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--c1, #7dd3fc), var(--c2, #a78bfa));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+/* Brillo superior */
+.tags li::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(80% 120% at 50% -40%, rgba(255, 255, 255, 0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+/* Hover */
+.tags li:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: transparent;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 10px 30px var(--glow, rgba(125, 211, 252, 0.25));
+}
+
+.tags li:hover::before {
+  opacity: 1;
+}
+
+.tags li:hover::after {
+  opacity: 0.6;
+}
+
+/* Colores por tecnología */
+.tags li[data-skill="React"] {
+  --c1: #61dafb;
+  --c2: #149eca;
+  --glow: rgba(20, 158, 202, 0.28);
+}
+
+.tags li[data-skill="TypeScript"] {
+  --c1: #2f74c0;
+  --c2: #66a6ff;
+  --glow: rgba(47, 116, 192, 0.28);
+}
+
+.tags li[data-skill="CSS"] {
+  --c1: #7c3aed;
+  --c2: #a78bfa;
+  --glow: rgba(124, 58, 237, 0.28);
+}
+
+.tags li[data-skill="Node.js"] {
+  --c1: #16a34a;
+  --c2: #86efac;
+  --glow: rgba(22, 163, 74, 0.28);
+}
+
+.tags li[data-skill="Git"] {
+  --c1: #f97316;
+  --c2: #fb923c;
+  --glow: rgba(249, 115, 22, 0.28);
+}
+
+.tags li[data-skill="AI/ML"] {
+  --c1: #ec4899;
+  --c2: #f472b6;
+  --glow: rgba(236, 72, 153, 0.28);
+}
+
+.tags li[data-skill="Python"] {
+  --c1: #3776ab;
+  --c2: #ffd43b;
+  --glow: rgba(55, 118, 171, 0.28);
+}
+
+.tags li[data-skill="JavaScript"] {
+  --c1: #f7df1e;
+  --c2: #f0db4f;
+  --glow: rgba(247, 223, 30, 0.28);
+}

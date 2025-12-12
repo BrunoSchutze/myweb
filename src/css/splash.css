@@ -1,0 +1,169 @@
+/* =====================================================
+   SPLASH.CSS - Pantalla de bienvenida responsive
+===================================================== */
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #0e0e10 0%, #0a0a0b 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.splash__title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Ocultar cursor del efecto typewriter */
+.splash__title .Typewriter__cursor {
+  display: none !important;
+}
+
+/* Si usa otro método de cursor */
+.splash__title::after {
+  display: none !important;
+}
+
+.splash__title span {
+  background: linear-gradient(90deg, #888 0%, #ccc 50%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.splash__progress-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.splash__progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.splash__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.splash__progress-text {
+  font-size: 1rem;
+  color: #888;
+  min-width: 45px;
+  text-align: right;
+}
+
+.splash__message {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .splash {
+    padding: 16px;
+    overflow: hidden;
+  }
+  
+  .splash__title {
+    font-size: 2.5rem;
+    margin-bottom: 32px;
+    padding: 0 10px;
+    word-break: break-word;
+  }
+  
+  .splash__progress-container {
+    max-width: 260px;
+  }
+  
+  .splash__progress-text {
+    font-size: 0.9rem;
+  }
+  
+  .splash__message {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .splash {
+    padding: 12px;
+  }
+  
+  .splash__title {
+    font-size: 2rem;
+    margin-bottom: 28px;
+    padding: 0 8px;
+  }
+  
+  .splash__progress-container {
+    max-width: 220px;
+    gap: 12px;
+  }
+  
+  .splash__progress-bar {
+    height: 5px;
+  }
+  
+  .splash__progress-text {
+    font-size: 0.85rem;
+    min-width: 40px;
+  }
+  
+  .splash__message {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .splash__title {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+    padding: 0 5px;
+  }
+  
+  .splash__progress-container {
+    max-width: 180px;
+    gap: 10px;
+  }
+  
+  .splash__progress-bar {
+    height: 4px;
+  }
+  
+  .splash__progress-text {
+    font-size: 0.8rem;
+  }
+  
+  .splash__message {
+    font-size: 0.8rem;
+  }
+}

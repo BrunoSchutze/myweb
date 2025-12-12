@@ -1,0 +1,453 @@
+/* =====================================================
+   HERO.CSS - Sección Hero
+===================================================== */
+
+/* ===== CONFETTI ===== */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-particle {
+  position: absolute;
+  animation: confetti-fall 3.5s ease-out forwards;
+}
+
+.confetti-particle--rect {
+  border-radius: 2px;
+}
+
+.confetti-particle--circle {
+  border-radius: 50%;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--rotation)) scale(1);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: 
+      translateY(120vh) 
+      translateX(calc(var(--speedX) * 150px)) 
+      rotate(calc(var(--rotation) + var(--rotationSpeed) * 720deg))
+      scale(0.5);
+    opacity: 0;
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hero__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ===== CONTENIDO ===== */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+}
+
+/* ===== BADGE - ESTILO ORIGINAL CON FONDO BLANCO ===== */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border-radius: 50px;
+  padding: 12px 24px;
+  width: fit-content;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.typing-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  min-height: 1.2em;
+}
+
+.cursor {
+  font-weight: 400;
+  color: #0a0a0a;
+  font-size: 1rem;
+  transition: opacity 0.1s ease;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.cursor.hidden {
+  opacity: 0;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.hero__description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #a1a1aa;
+  max-width: 500px;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* ===== BOTONES CTA ===== */
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary svg,
+.btn-secondary svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.btn-secondary:hover svg {
+  transform: translateY(2px);
+}
+
+/* ===== CODE CARD ===== */
+.hero__code {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: #a1a1aa;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.social-links a svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .hero__container {
+    gap: 40px;
+  }
+  
+  .hero__title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+    padding: 0 24px;
+  }
+  
+  .hero__content {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .hero__title {
+    font-size: 2.8rem;
+  }
+  
+  .hero__description {
+    max-width: 100% !important;
+    width: auto !important;
+    padding: 0 20px;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .hero__code {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 60px;
+    min-height: auto;
+  }
+  
+  .hero__container {
+    gap: 24px;
+    padding: 0 16px !important;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero__content {
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero__title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .role-badge {
+    padding: 10px 20px;
+  }
+  
+  .typing-text {
+    font-size: 0.9rem;
+  }
+  
+  .hero__description {
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    line-height: 1.7;
+    margin: 0 auto !important;
+  }
+  
+  /* Botones más grandes en mobile */
+  .cta-buttons {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+  
+  .btn-primary svg,
+  .btn-secondary svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .social-links {
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .social-links a {
+    width: 44px;
+    height: 44px;
+  }
+  
+  /* Code card pequeña debajo de botones */
+  .hero__code {
+    transform: scale(0.7);
+    margin-top: -20px;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 110px 0 40px;
+  }
+  
+  .hero__container {
+    padding: 0 16px !important;
+    gap: 20px;
+  }
+  
+  .hero__title {
+    font-size: 1.75rem;
+    padding: 0;
+  }
+  
+  .role-badge {
+    padding: 8px 16px;
+  }
+  
+  .typing-text {
+    font-size: 0.85rem;
+  }
+  
+  .hero__description {
+    font-size: 0.9rem !important;
+    line-height: 1.6;
+    padding: 0 10px !important;
+  }
+  
+  /* Botones tamaño medio */
+  .cta-buttons {
+    gap: 10px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .social-links a {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .social-links a svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Code card más pequeña */
+  .hero__code {
+    transform: scale(0.6);
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__container {
+    padding: 0 16px !important;
+  }
+  
+  .hero__title {
+    font-size: 1.5rem;
+  }
+  
+  .hero__description {
+    font-size: 0.85rem !important;
+    line-height: 1.55;
+    padding: 0 8px !important;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 11px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .social-links {
+    gap: 8px;
+  }
+  
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero__code {
+    transform: scale(0.5);
+    margin-top: -40px;
+  }
+}

@@ -1,0 +1,24 @@
+/* =====================================================
+   STYLES.CSS - Archivo Principal
+   Importa todos los módulos CSS
+===================================================== */
+
+/* Base y Variables */
+@import './css/base.css';
+
+/* Componentes */
+@import './css/navbar.css';
+@import './css/buttons.css';
+@import './css/hero.css';
+@import './css/codecard.css';
+@import './css/about.css';
+@import './css/cards.css';
+@import './css/tags.css';
+@import './css/services.css';
+@import './css/projects.css';
+@import './css/social.css';
+@import './css/memoji.css';
+@import './css/footer.css';
+@import './css/splash.css';
+@import './css/modal.css';
+@import './css/admin.css';

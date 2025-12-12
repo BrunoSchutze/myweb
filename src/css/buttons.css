@@ -1,0 +1,92 @@
+/* =====================================================
+   BUTTONS.CSS - Botones y Animaciones
+===================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #222;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .25);
+}
+
+.btn--action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn--download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn--sm {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Animación flecha */
+.ico-arrow {
+  transition: transform .35s ease;
+}
+
+.btn:hover .ico-arrow,
+.btn--action:hover .ico-arrow {
+  transform: translateX(6px);
+}
+
+.btn--primary .icon-arrow {
+  transition: transform .25s ease;
+}
+
+.btn--primary:hover .icon-arrow {
+  transform: translateX(6px);
+}
+
+/* Animación download */
+.ico-download {
+  animation: bounceDown 1.6s ease-in-out infinite;
+}
+
+.btn--download .icon-download,
+.btn--download .ico-download {
+  animation: bounceDown 1.6s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
+@keyframes downloadPulse {
+  0%   { transform: translateY(0); opacity: .9; }
+  30%  { transform: translateY(2px); opacity: 1; }
+  60%  { transform: translateY(0); opacity: .9; }
+  100% { transform: translateY(0); opacity: .9; }
+}
+
+.link {
+  color: #cfd1ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

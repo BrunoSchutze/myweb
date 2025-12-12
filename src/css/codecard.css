@@ -1,0 +1,84 @@
+/* =====================================================
+   CODECARD.CSS - Tarjeta de Código
+===================================================== */
+
+.code-window {
+  width: 520px;
+  max-width: 100%;
+}
+
+.code-card {
+  width: 540px;
+  max-width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #151517, #121214);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.code-card__header {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #1b1b1e, #17171a);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.code-card__header .led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-card__header .red { background: #ff5f57; }
+.code-card__header .yellow { background: #ffbd2e; }
+.code-card__header .green { background: #28c840; }
+
+.code-card__header .filename {
+  margin-left: 6px;
+  color: #c9cad8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.code-card__body {
+  padding: 16px 18px 18px;
+  max-height: 380px;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #e6e7ef;
+  position: relative;
+}
+
+.code-typing code {
+  white-space: pre-wrap;
+}
+
+/* Cursor del editor */
+.code-caret {
+  position: absolute;
+  width: 9px;
+  height: 16px;
+  background: #e6e7ef;
+  bottom: 16px;
+  right: 18px;
+  opacity: .9;
+  animation: caretBlink 1.1s steps(1) infinite;
+}
+
+/* Syntax Highlighting */
+.t-kw { color: #c792ea; }
+.t-kw2 { color: #82aaff; }
+.t-str { color: #ecc48d; }
+.t-type { color: #7fdbca; }
+.t-prop { color: #f78c6c; }
+.t-arr { color: #a6accd; }
+.t-fn { color: #89ddff; }
+.t-num { color: #ffb86c; }
+.t-comm { color: #8e94a7; }
