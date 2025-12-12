@@ -1,6 +1,6 @@
 import React from "react";
 import { useContent } from "../ContentContext";
-import logoImg from "../public/logo.png";
+import logo from '/logo.png';
 
 export default function Footer({ onLogoClick }) {
   const { content } = useContent();
@@ -18,7 +18,7 @@ export default function Footer({ onLogoClick }) {
             onClick={onLogoClick}
             title="Panel Admin"
           >
-            <img src={logoImg} alt="Logo" />
+            <img src={logo} alt="Logo" />
           </button>
           <div className="footer__info">
             <span className="footer__name">{name}</span>
