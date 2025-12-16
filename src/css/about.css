@@ -614,4 +614,20 @@
     width: 44px;
     height: 44px;
   }
+
+  /* En about.css - Mostrar contenido primero en móvil */
+@media (max-width: 768px) {
+  .about__layout {
+    display: flex;
+    flex-direction: column-reverse; /* Avatar abajo, contenido arriba */
+  }
+  
+  .about__avatar {
+    order: 2;
+  }
+  
+  .about__content {
+    order: 1;
+  }
+}
 }

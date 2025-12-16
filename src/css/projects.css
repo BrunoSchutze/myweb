@@ -879,4 +879,56 @@
     width: 32px;
     height: 32px;
   }
+
+  /* Modal responsive para imágenes */
+ @media (max-width: 768px) {
+  .project-modal {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    margin: 16px;
+    width: calc(100% - 32px);
+  }
+
+  .project-modal__gallery {
+    max-height: 50vh;
+  }
+
+  .project-modal__main-image {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .project-modal__main-image img {
+    max-height: 40vh;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .project-modal__thumbnails {
+    padding: 12px 16px;
+    gap: 8px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .project-modal__thumb {
+    width: 60px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .project-modal__content {
+    padding: 20px;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  .project-modal__nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-modal__nav--prev { left: 8px; }
+  .project-modal__nav--next { right: 8px; }
+ }
 }
