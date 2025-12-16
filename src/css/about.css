@@ -7,8 +7,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 100px 0 150px 0;  /* Cambiado: más padding abajo */
+  padding: 100px 0 150px 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Subrayado decorativo en título Acerca de Mí */
@@ -28,6 +29,7 @@
   background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.3) 100%);
   border-radius: 2px;
 }
+
 /* ===== LAYOUT ===== */
 .about__layout {
   display: grid;
@@ -36,11 +38,12 @@
   align-items: center;
 }
 
-/* ===== MEMOJI 3D - MÁS GRANDE ===== */
+/* ===== MEMOJI 3D ===== */
 .about__avatar {
   position: relative;
   opacity: 0;
   transform: translateX(-50px) scale(0.8);
+  overflow: hidden;
 }
 
 .about__avatar.animate-in {
@@ -65,6 +68,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 /* Animación cuando el memoji es visible */
@@ -118,6 +122,7 @@
 .about__memoji-wrapper canvas {
   width: 100% !important;
   height: 100% !important;
+  max-width: 100%;
 }
 
 /* ===== CONTENIDO ===== */
@@ -229,6 +234,20 @@
   color: #71717a;
 }
 
+/* ===== EDUCACIÓN GRID ===== */
+.about__education-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.about__education-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+}
+
 /* Skills */
 .about__skills {
   display: flex;
@@ -251,6 +270,9 @@
   opacity: 0;
   transform: translateY(20px) scale(0.9);
   cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .about__skill.skill-animate {
@@ -280,97 +302,7 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1200px) {
-  .about__layout {
-    grid-template-columns: 500px 1fr;
-    gap: 40px;
-  }
-  
-  .about__memoji-wrapper {
-    width: 480px;
-    height: 480px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .about__layout {
-    grid-template-columns: 420px 1fr;
-    gap: 30px;
-  }
-  
-  .about__memoji-wrapper {
-    width: 400px;
-    height: 400px;
-  }
-  
-  .about__title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about__layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .about__avatar {
-    display: flex;
-    justify-content: center;
-    order: 2;
-  }
-  
-  .about__content {
-    order: 1;
-  }
-  
-  .about__memoji-wrapper {
-    width: 350px;
-    height: 350px;
-  }
-  
-  .about__title {
-    font-size: 2rem;
-    text-align: center;
-  }
-  
-  .about__name {
-    font-size: 1.3rem;
-  }
-  
-  .about__block-title {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section {
-    padding: 60px 0;
-  }
-  
-  .about__memoji-wrapper {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .about__skills {
-    padding-left: 0;
-  }
-  
-  .about__skill {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-}
-
 /* ===== SKILL CON CERTIFICADO ===== */
-.about__skill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .about__skill-name {
   display: inline;
 }
@@ -423,18 +355,6 @@
   height: 14px;
   flex-shrink: 0;
   opacity: 0.7;
-}
-
-@media (max-width: 768px) {
-  .about__cert-hint {
-    font-size: 0.75rem;
-    margin: 4px 0 10px 0;
-  }
-  
-  .about__cert-hint svg {
-    width: 12px;
-    height: 12px;
-  }
 }
 
 /* ===== MODAL DE CERTIFICADO ===== */
@@ -564,8 +484,108 @@
   object-fit: contain;
 }
 
-/* ===== RESPONSIVE ===== */
+/* =====================================================
+   RESPONSIVE - MÓVIL: CONTENIDO PRIMERO, AVATAR DESPUÉS
+===================================================== */
+
+@media (max-width: 1200px) {
+  .about__layout {
+    grid-template-columns: 500px 1fr;
+    gap: 40px;
+  }
+  
+  .about__memoji-wrapper {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about__layout {
+    grid-template-columns: 420px 1fr;
+    gap: 30px;
+  }
+  
+  .about__memoji-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .about__title {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  /* IMPORTANTE: Contenido primero, avatar después */
+  .about__layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px;
+  }
+  
+  /* Contenido va PRIMERO (arriba) */
+  .about__content {
+    order: 1 !important;
+  }
+  
+  /* Avatar va DESPUÉS (abajo) */
+  .about__avatar {
+    order: 2 !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .about__memoji-wrapper {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+  }
+  
+  .about__memoji-wrapper canvas {
+    max-width: 280px !important;
+    height: auto !important;
+  }
+  
+  .about__title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about__header {
+    text-align: center;
+  }
+  
+  .about__name {
+    font-size: 1.3rem;
+  }
+  
+  .about__block-title {
+    font-size: 1.1rem;
+  }
+
+  /* Educación 1 columna */
+  .about__education-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Hint de certificados */
+  .about__cert-hint {
+    font-size: 0.75rem;
+    margin: 4px 0 10px 0;
+  }
+  
+  .about__cert-hint svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Modal certificado */
   .cert-modal {
     padding: 20px;
     max-width: 100%;
@@ -601,6 +621,36 @@
 }
 
 @media (max-width: 480px) {
+  .about-section {
+    padding: 60px 0;
+  }
+  
+  .about__avatar {
+    max-width: 220px;
+  }
+  
+  .about__memoji-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .about__memoji-wrapper canvas {
+    max-width: 220px !important;
+  }
+
+  .about__title {
+    font-size: 1.75rem;
+  }
+  
+  .about__skills {
+    padding-left: 0;
+  }
+  
+  .about__skill {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
   .cert-modal {
     padding: 16px;
     border-radius: 14px;
@@ -614,20 +664,9 @@
     width: 44px;
     height: 44px;
   }
-
-  /* En about.css - Mostrar contenido primero en móvil */
-@media (max-width: 768px) {
-  .about__layout {
-    display: flex;
-    flex-direction: column-reverse; /* Avatar abajo, contenido arriba */
-  }
-  
-  .about__avatar {
-    order: 2;
-  }
-  
-  .about__content {
-    order: 1;
-  }
 }
+
+/* ===== PREVENIR SCROLL HORIZONTAL ===== */
+html, body, #root {
+  overflow-x: hidden;
 }

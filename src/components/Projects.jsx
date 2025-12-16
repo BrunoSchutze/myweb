@@ -1,3 +1,4 @@
+// src/components/Projects.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { useContent } from "../ContentContext";
 
@@ -30,7 +31,8 @@ function ProjectModal({ project, onClose }) {
             <div className="project-modal__main-image">
               <img 
                 src={images[currentImage]} 
-                alt={project.title} 
+                alt={project.title}
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.style.display = 'none';
@@ -59,7 +61,12 @@ function ProjectModal({ project, onClose }) {
                       className={`project-modal__thumb ${idx === currentImage ? 'active' : ''}`}
                       onClick={() => setCurrentImage(idx)}
                     >
-                      <img src={img} alt={`${project.title} ${idx + 1}`} onError={(e) => { e.target.onerror = null; e.target.style.display = 'none'; }} />
+                      <img 
+                        src={img} 
+                        alt={`${project.title} ${idx + 1}`}
+                        loading="lazy"
+                        onError={(e) => { e.target.onerror = null; e.target.style.display = 'none'; }} 
+                      />
                     </button>
                   ))}
                 </div>
@@ -124,7 +131,12 @@ function ProjectModal({ project, onClose }) {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          <img src={images[currentImage]} alt={project.title} onClick={(e) => e.stopPropagation()} />
+          <img 
+            src={images[currentImage]} 
+            alt={project.title} 
+            loading="lazy"
+            onClick={(e) => e.stopPropagation()} 
+          />
           {images.length > 1 && (
             <>
               <button className="project-lightbox__nav project-lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); goToPrev(); }}>
@@ -219,6 +231,21 @@ export default function Projects({ id = "proyectos" }) {
   const scrollToLeft = () => gridRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
   const scrollToRight = () => gridRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
 
+  // Si no hay proyectos, no mostrar nada
+  if (!projects || projects.length === 0) {
+    return (
+      <section id={id} className="section" ref={sectionRef}>
+        <div className="container">
+          <div className="section__header">
+            <h2>Mis Proyectos</h2>
+            <p>Algunos de los proyectos en los que he trabajado</p>
+          </div>
+          <p style={{ textAlign: 'center', color: '#71717a' }}>Cargando proyectos...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id={id} className="section" ref={sectionRef}>
       <div className="container">
@@ -245,7 +272,7 @@ export default function Projects({ id = "proyectos" }) {
           >
             {projects.map((proj, i) => (
               <article 
-                key={i} 
+                key={proj.id || i} 
                 className={`project-card ${isVisible ? 'animate-in' : ''}`}
                 onClick={() => !isDraggingRef.current && setSelectedProject(proj)}
                 style={{ animationDelay: `${i * 0.15}s` }}
@@ -255,6 +282,7 @@ export default function Projects({ id = "proyectos" }) {
                     <img 
                       src={proj.img} 
                       alt={proj.title}
+                      loading="lazy"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.style.display = 'none';
@@ -277,7 +305,7 @@ export default function Projects({ id = "proyectos" }) {
                   <h3 className="project-card__title">{proj.title}</h3>
                   {proj.description && <p className="project-card__desc">{proj.description}</p>}
                   <ul className="tags project-card__tags">
-                    {proj.tags.slice(0, 4).map((tag) => (<li key={tag} data-skill={tag}>{tag}</li>))}
+                    {proj.tags && proj.tags.slice(0, 4).map((tag) => (<li key={tag} data-skill={tag}>{tag}</li>))}
                   </ul>
                   <div className="project-card__footer">
                     {proj.url && (

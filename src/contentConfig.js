@@ -4,8 +4,8 @@ export const defaultContent = {
     title: "Hola, soy Bruno",
     subtitle: "Desarrollador Web",
     description:
-      "Estudiante de Seguridad Informatica y Analista de Sistemas. Me apasiona construir soluciones web con rendimiento, diseño y una gran experiencia de usuario.",
-    hireLink: "#contacto",
+      "Estudiante de Seguridad Informática y analista de sistemas. Me apasiona construir soluciones web con rendimiento, diseño y una gran experiencia de usuario.",
+    hireLink: "",
     cvUrl: "",
     cvFileName: "",
   },
